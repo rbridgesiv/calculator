@@ -1,163 +1,188 @@
-* {
-    font-family: Helvetica, sans-serif;
-    /* border: red solid; */
+/ NOTE: You don't need to mess around with 
+// CSS to follow the tutorial. Focus on the 
+// JavaScript instead!
+// =========================
+
+// Some personal resets
+html {
+  box-sizing: border-box;
 }
 
-html, body {
-    margin: 0;
-    height: 100%;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+}
+
+/* Responsive Images */
+
+embed,
+iframe,
+img,
+object,
+video {
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p,
+pre,
+blockquote,
+figure,
+hr {
+  margin: 0;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:focus {
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: block;
+}
+
+/* Removes all decimals and discs from lists */
+
+ol,
+ul {
+  list-style: none;
+}
+
+/* 
+ * Completely resets form items
+ * ----------------------------
+ * Super hard reset that removes all borders
+ * and radiuses of all form items (including
+ * checkboxes and radios)
+ */
+
+input,
+textarea,
+button {
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  outline: none;
+  appearance: none;
+  text-align: left;
+}
+
+input:hover,
+input:active,
+input:focus,
+textarea:hover,
+textarea:active,
+textarea:focus,
+button:hover,
+button:active,
+button:focus {
+  outline: none;
+}
+
+:root {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+html {
+  font-size: 175%;
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+body {
+  align-items: center;
+  background-image: linear-gradient(236deg, #74ebd5, #acb6e5);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.container {
+  max-width: 20em;
+}
+
+.container > p {
+  text-align: center;
 }
 
 .calculator {
-    background-color: #11141a;
-    width: 350px;
-    height: 580px;
-    border-radius: 25px;
-    margin:auto;
-    margin-top: 100px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0 0 40px 0px rgba(0, 0, 0, 0.15);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+  max-width: 15em;
+  overflow: hidden;
 }
 
-.display {
-    background-color: #5b5f62;
-    width: 300px;
-    height: 90px;
-    margin-top: 40px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+.calculator__display {
+  background-color: #222222;
+  color: #fff;
+  font-size: 1.714285714em;
+  padding: 0.5em 0.75em;
+  text-align: right;
 }
 
-.dsplytxt {
-    font-family: 'Calculator', sans-serif;
-    font-size: 60px;
-    margin: 0 20px 0 0;
-    text-align: right;
-    color:rgb(177, 210, 211);
+.calculator__keys {
+  background-color: #999;
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.firstrow{
-    width: 300px;
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 5%;
-    margin-bottom: 10px;
+.calculator__keys > * {
+  background-color: #fff;
+  padding: 0.5em 1.25em;
+  position: relative;
+  text-align: center;
 }
 
-.secondrow{
-    width: 300px;
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 5%;
-    margin-bottom: 10px;
+.calculator__keys > *:active::before,
+.calculator__keys > .is-depressed::before {
+  background-color: rgba(0, 0, 0, 0.2);
+  bottom: 0;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5) inset;
+  content: "";
+  left: 0;
+  opacity: 0.3;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
 }
 
-.thirdrow{
-    width: 300px;
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 5%;
-    margin-bottom: 10px;
+.key--operator {
+  background-color: #eee;
 }
 
-.fourthrow{
-    width: 300px;
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 5%;
-    margin-bottom: 10px;
-}
-
-.fifthrow {
-    width: 300px;
-    height: 75px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5%;
-    margin-bottom: 30px;
-}
-
-.button {
-    display: inline-block;
-    font-size: 25px; 
-    text-align: center;
-    background-color:#3d4042;
-    border: none;
-    height: 70px;
-    width: 90px;
-    border-radius: 10%; 
-    color:rgb(177, 210, 211);
-    font-weight:90;
-}
-
-/* .button:hover {
-    background-color: #767a7e;
-} */
-
-.button:active {
-    background-color: #393b3d;
-    transform: translateY(.4px);
-}
-
-.operator {
-    color:chocolate;
-    background-color: #5b5f62;
-}
-
-.operator:active {
-    background-color: #595c5f;
-    transform: translateY(.4px);
-}
-
-.clear {
-    background-color: #595c5f;
-    color:chocolate;;    
-    font-size: 22px;
-    padding: 3px 0 0 0;
-}
-
-/* .clear:hover {
-    background-color: rgb(245, 98, 44);
-} */
-
-.backspace {
-    background-color: #5b5f62;
-    color: rgb(177, 210, 211);
-    font-size: 22px;
-}
-
-.percent {
-    background-color: #5b5f62;
-    color:chocolate;
-    font-size: 20px;
-}
-
-.percent:active {
-    background-color: #595c5f;
-    transform: translateY(.4px);
-}
-
-.plus-minus {
-    background-color: #5b5f62;
-    color:chocolate;
-    font-size: 20px;
-}
-
-.plus-minus:active {
-    background-color: #595c5f;
-    transform: translateY(.4px);
-}
-
-.equals {
-    background-color: #5b5f62;
+.key--equal {
+  background-image: linear-gradient(to bottom, #fe886a, #ff7033);
+  grid-column: -2;
+  grid-row: 2 / span 4;
 }
