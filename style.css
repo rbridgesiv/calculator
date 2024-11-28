@@ -14,6 +14,7 @@ html {
   box-sizing: inherit;
 }
 
+
 body {
   margin: 0;
 }
@@ -79,6 +80,11 @@ ul {
  * checkboxes and radios)
  */
 
+ .heading {
+  display: flex;
+  justify-content: center;
+ }
+
 input,
 textarea,
 button {
@@ -117,7 +123,7 @@ html {
 
 body {
   align-items: center;
-  background-image: linear-gradient(236deg, #74ebd5, #acb6e5);
+  background-image: linear-gradient(236deg, #b2c1bf, #343640);
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -137,20 +143,21 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 2em;
-  max-width: 15em;
+  max-width: 20em;
   overflow: hidden;
 }
 
 .calculator__display {
   background-color: #222222;
   color: #fff;
+  font-family: Orbitron;
   font-size: 1.714285714em;
   padding: 0.5em 0.75em;
   text-align: right;
 }
 
 .calculator__keys {
-  background-color: #999;
+  background-color: #333333;
   display: grid;
   grid-gap: 1px;
   grid-template-columns: repeat(4, 1fr);
@@ -177,12 +184,29 @@ body {
   z-index: 1;
 }
 
+.key--number {
+  background-color: #2d2b2a;
+  color:#fff;
+}
+
+.key--decimal {
+  background-color: #2d2b2a;
+  color:#fff;
+}
+
+.key--clear {
+  background-color: #2d2b2a;
+  color:#ffffff;
+}
+
 .key--operator {
-  background-color: #eee;
+  background-color: #2d2b2a;
+  color: #fff;
 }
 
 .key--equal {
-  background-image: linear-gradient(to bottom, #fe886a, #ff7033);
+  background-image: linear-gradient(to bottom, #2d2b2a, #bdb2ae);
   grid-column: -2;
   grid-row: 2 / span 4;
+  color: #ffffff;
 }
